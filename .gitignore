@@ -16,4 +16,4 @@ bin/*
 
 .kitchen/
 .kitchen.local.yml
-.vendor.sh
+vendor.sh
