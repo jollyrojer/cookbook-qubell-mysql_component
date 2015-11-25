@@ -18,6 +18,20 @@ case node[:platform]
 
 include_recipe "mysql::server"
 
+remote_file "#{node["mysql_component"]["tmp_path"]}/mysql-2.9.1-x86_64-linux.gem" do
+  source node["mysql_component"]["mysql_gem_url"]
+end
+
+#execute "install mysql_gem" do
+#  command "/opt/chef/embedded/bin/gem install --local #{node["mysql_component"]["tmp_path"]}/mysql-2.9.1.gem"
+#end 
+
+gem_package "mysql-2.9.1" do
+  source "#{node["mysql_component"]["tmp_path"]}/mysql-2.9.1-x86_64-linux.gem"
+  version "2.9.1"
+  action :install
+end
+
 case node[:platform_family]
   when "rhel"
     service "iptables" do

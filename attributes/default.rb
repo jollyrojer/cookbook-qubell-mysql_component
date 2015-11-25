@@ -13,3 +13,6 @@ default[:mysql_component][:schema][:dbname] = nil
 
 default[:mysql_component][:sql_url] = nil
 default[:mysql_component][:hosts] = ["localhost"]
+
+default[:mysql_component][:tmp_path] = "/tmp"
+default[:mysql_component][:mysql_gem_url] = ""
